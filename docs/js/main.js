@@ -33,7 +33,9 @@ function init() {
 	source = new THREEx.ArToolkitSource({sourceType: "webcam"});
 
 	// ソースを初期化
-	source.init(function onReady() {resize();});
+	source.init(function onReady() {
+		resize();
+	});
 
 	// ArToolkitContextの作成
 	context = new THREEx.ArToolkitContext({
@@ -45,14 +47,18 @@ function init() {
 		canvasWidth: source.parameters.sourceWidth,
 		canvasHeight: source.parameters.sourceHeight,
 	});
+
+	// コンテクスト初期化
 	context.init(function onCompleted(){
 		camera.projectionMatrix.copy(context.getProjectionMatrix());
 	});
 
+	// リサイズ処理
 	window.addEventListener("resize", function() {
 		resize();
 	});
 
+	// マウスダウン処理
 	window.addEventListener("mousedown", function(ret) {
 		var mouseX = ret.clientX;                           // マウスのx座標
 		var mouseY = ret.clientY;                           // マウスのy座標
