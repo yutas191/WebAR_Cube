@@ -30,9 +30,10 @@ function init() {
 	scene.add(camera);
 
 	// ArToolkitSource‚Ìì¬
-	source = new THREEx.ArToolkitSource({
-		sourceType: "webcam",
-	});
+	source = new THREEx.ArToolkitSource({sourceType: "webcam"});
+
+	// ƒ\[ƒX‚ğ‰Šú‰»
+	source.init(function onReady() {resize();});
 
 	// ArToolkitContext‚Ìì¬
 	context = new THREEx.ArToolkitContext({
