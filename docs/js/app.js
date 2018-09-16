@@ -1,5 +1,7 @@
 var meshCube;
 var meshRocket;
+var marker1, controls1;
+var marker2, controls2;
 
 class App {
 	init() {
@@ -11,13 +13,13 @@ class App {
 		scene.add( ambientLight );
 
 		// マーカ1
-		var marker1 = new THREE.Group();
-		var controls1 = new THREEx.ArMarkerControls(context, marker1, {type: "pattern",patternUrl: "./data/kanji.patt"});
+		marker1 = new THREE.Group();
+		controls1 = new THREEx.ArMarkerControls(context, marker1, {type: "pattern",patternUrl: "./data/kanji.patt"});
 		scene.add(marker1);
 
 		// マーカ2
-		var marker2 = new THREE.Group();
-		var controls2 = new THREEx.ArMarkerControls(context, marker2, {type: "pattern",patternUrl: "./data/hiro.patt"});
+		marker2 = new THREE.Group();
+		controls2 = new THREEx.ArMarkerControls(context, marker2, {type: "pattern",patternUrl: "./data/hiro.patt"});
 		scene.add(marker2);
 
 		// Cube
