@@ -6,31 +6,13 @@ class App {
 		this.scene = scene;
 	}
 
-	init(marker1,marker2) {
+	init() {
 		// ライト
 		var light = new THREE.DirectionalLight(0xFFFFFF);
 		light.position.set(0,0,2);
 		scene.add( light );
 		var ambientLight = new THREE.AmbientLight(0x888888);
 		scene.add( ambientLight );
-
-		// Cube
-		var geometryCube = new THREE.CubeGeometry(1, 1, 1);
-		var materialCube = new THREE.MeshNormalMaterial({transparent: true,opacity: 0.8,side:THREE.DoubleSide});
-		meshCube = new THREE.Mesh(geometryCube, materialCube);
-		meshCube.name = "cube";
-		meshCube.position.set(0, 0.5, 0);
-		marker1.add(meshCube);
-
-		// Rocket
-		loader.load("./model/rocketX.json", function(geometryRocket, materialRocket){
-			materialRocket = new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture("./model/rocketX.png"),side:THREE.DoubleSide});
-			meshRocket = new THREE.Mesh(geometryRocket, materialRocket);
-			meshRocket.name = "rocket";
-			meshRocket.scale.set(0.3, 0.3, 0.3);
-			meshRocket.position.set(0, 0.5, 0);
-			marker2.add(meshRocket);
-		});
 	}
 
 	// タッチ
