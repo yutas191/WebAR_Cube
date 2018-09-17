@@ -75,7 +75,6 @@ class App {
 		.onUpdate(function() {
 			meshCube.position.z = twVal1.posZ;
 			meshCube.rotation.x = twVal1.rotX;
-			meshText1.position.z = twVal1.posZ;
 		})
 		.onComplete(function() {
 			var tween = new TWEEN.Tween(twVal1)		// 「帰り」のアニメーションを実行
@@ -84,7 +83,6 @@ class App {
 			.onUpdate(function() {
 				meshCube.position.z = twVal1.posZ;
 				meshCube.rotation.x = twVal1.rotX;
-				meshText1.position.z = twVal1.posZ;
 			})
 			.onComplete(function() {
 				// なにもしない
@@ -108,7 +106,6 @@ class App {
 		.onUpdate(function() {
 			meshRocket.position.y = twVal2.posY;
 			meshRocket.rotation.y = twVal2.rotY;
-			meshText2.position.y = twVal2.posY;
 		})
 		.onComplete(function() {
 			var tween = new TWEEN.Tween(twVal2)		// 「帰り」のアニメーションを実行
@@ -117,7 +114,6 @@ class App {
 			.onUpdate(function() {
 				meshRocket.position.y = twVal2.posY;
 				meshRocket.rotation.y = twVal2.rotY;
-				meshText2.position.y = twVal2.posY;
 			})
 			.onComplete(function() {
 				// なにもしない
