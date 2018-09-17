@@ -6,7 +6,7 @@ var marker2, controls2;
 
 var clock = new THREE.Clock();
 var scene = new THREE.Scene();
-//var app = new App(scene);
+var app = new App(scene);
 var loader = new THREE.JSONLoader();
 
 init();
@@ -102,7 +102,7 @@ function init() {
 		marker2.add(meshRocket);
 	});
 
-//	app.init();
+	app.init();
 }
 
 function resize() {
@@ -114,13 +114,11 @@ function resize() {
 }
 
 function update(dt) {
-//	resize();
-//	camera.updateProjectionMatrix();
-//	app.update(dt);
+	app.update(dt);
 }
 
 function render(dt) {
-//	app.render(dt);
+	app.render(dt);
 	renderer.render(scene, camera);
 }
 
