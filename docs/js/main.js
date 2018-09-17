@@ -28,7 +28,7 @@ function init() {
 
 	camera = new THREE.Camera();
 	scene.add(camera);
-/*
+
 	// リサイズ処理
 	window.addEventListener("resize", function() {
 		resize();
@@ -46,10 +46,10 @@ function init() {
 		var ray = new THREE.Raycaster(camera.position, pos.sub(camera.position).normalize());
 		var obj = ray.intersectObjects(scene.children, true);   // レイと交差したオブジェクトの取得
 		if(obj.length > 0) {                                // 交差したオブジェクトがあれば
-		//app.touch(obj[0].object.name);                       // タッチされた対象に応じた処理を実行
+		app.touch(obj[0].object.name);                       // タッチされた対象に応じた処理を実行
 		}
 	});
-*/
+
 	// ArToolkitSourceの作成
 	source = new THREEx.ArToolkitSource({sourceType: "webcam"});
 
