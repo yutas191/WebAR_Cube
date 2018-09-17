@@ -36,7 +36,7 @@ function init() {
 
 	// ArToolkitContext�̍쐬
 	context = new THREEx.ArToolkitContext({
-		debug: true,
+		debug: false,
 		cameraParametersUrl: "./data/camera_para.dat",
 		detectionMode: "mono",
 		imageSmoothingEnabled: true,

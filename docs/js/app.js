@@ -33,6 +33,7 @@ class App {
 		meshCube.name = "cube";
 		meshCube.position.set(0, 0.5, 0);
 		marker1.add(meshCube);
+		scene.add(meshCube);
 
 		// Rocket
 		loader.load("./model/rocketX.json", function(geometryRocket, materialRocket){
