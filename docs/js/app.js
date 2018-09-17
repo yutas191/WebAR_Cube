@@ -4,7 +4,12 @@ var marker1, controls1;
 var marker2, controls2;
 
 class App {
-	init(context) {
+	constructor(scene,context) {
+		this.scene = scene;
+		this.context = context;
+	}
+
+	init() {
 		// ƒ‰ƒCƒg
 		var light = new THREE.DirectionalLight(0xFFFFFF);
 		light.position.set(0,0,2);

@@ -3,16 +3,13 @@ var source, context;
 
 var clock = new THREE.Clock();
 var scene = new THREE.Scene();
-var app = new App(scene);
+var app = new App(scene,context);
 var loader = new THREE.JSONLoader();
 
 init();
 animate();
 
 function init() {
-	// ƒV[ƒ“‚Ìì¬
-	scene = new THREE.Scene();
-
 	// ƒŒƒ“ƒ_ƒ‰‚Ìì¬
 	renderer = new THREE.WebGLRenderer({
 	  antialias: true,
@@ -74,7 +71,7 @@ function init() {
 		}
 	});
 
-	app.init(context);
+	app.init();
 }
 
 function resize() {
