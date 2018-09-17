@@ -8,23 +8,39 @@ class App {
 		this.scene = scene;
 	}
 
-	init(context) {
+	init(context,camera,source) {
 		// ライト
 		var light = new THREE.DirectionalLight(0xFFFFFF);
 		light.position.set(0,0,2);
-		this.scene.add( light );
+		scene.add( light );
 		var ambientLight = new THREE.AmbientLight(0x888888);
-		this.scene.add( ambientLight );
+		scene.add( ambientLight );
+
+		// ArToolkitContextの作成
+		context = new THREEx.ArToolkitContext({
+			debug: false,
+			cameraParametersUrl: "./data/camera_para.dat",
+			detectionMode: "mono",
+			imageSmoothingEnabled: true,
+			maxDetectionRate: 60,
+			canvasWidth: source.parameters.sourceWidth,
+			canvasHeight: source.parameters.sourceHeight,
+		});
+
+		// コンテクスト初期化
+		context.init(function onCompleted(){
+			camera.projectionMatrix.copy(context.getProjectionMatrix());
+		});
 
 		// マーカ1
 		marker1 = new THREE.Group();
 		controls1 = new THREEx.ArMarkerControls(context, marker1, {type: "pattern",patternUrl: "./data/kanji.patt"});
-		this.scene.add(marker1);
+		scene.add(marker1);
 
 		// マーカ2
 		marker2 = new THREE.Group();
 		controls2 = new THREEx.ArMarkerControls(context, marker2, {type: "pattern",patternUrl: "./data/hiro.patt"});
-		this.scene.add(marker2);
+		scene.add(marker2);
 
 		// Cube
 		var geometryCube = new THREE.CubeGeometry(1, 1, 1);

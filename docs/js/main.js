@@ -34,22 +34,6 @@ function init() {
 		resize();
 	});
 
-	// ArToolkitContextの作成
-	context = new THREEx.ArToolkitContext({
-		debug: false,
-		cameraParametersUrl: "./data/camera_para.dat",
-		detectionMode: "mono",
-		imageSmoothingEnabled: true,
-		maxDetectionRate: 60,
-		canvasWidth: source.parameters.sourceWidth,
-		canvasHeight: source.parameters.sourceHeight,
-	});
-
-	// コンテクスト初期化
-	context.init(function onCompleted(){
-		camera.projectionMatrix.copy(context.getProjectionMatrix());
-	});
-
 	// リサイズ処理
 	window.addEventListener("resize", function() {
 		resize();
@@ -71,7 +55,7 @@ function init() {
 		}
 	});
 
-	app.init(context);
+	app.init(context,camera,source);
 }
 
 function resize() {
