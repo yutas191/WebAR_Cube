@@ -114,8 +114,8 @@ function resize() {
 }
 
 function update(dt) {
-	resize();
-	camera.updateProjectionMatrix();
+//	resize();
+//	camera.updateProjectionMatrix();
 //	app.update(dt);
 }
 
