@@ -28,7 +28,7 @@ function init() {
 
 	camera = new THREE.Camera();
 	scene.add(camera);
-
+/*
 	// リサイズ処理
 	window.addEventListener("resize", function() {
 		resize();
@@ -49,7 +49,7 @@ function init() {
 		//app.touch(obj[0].object.name);                       // タッチされた対象に応じた処理を実行
 		}
 	});
-
+*/
 	// ArToolkitSourceの作成
 	source = new THREEx.ArToolkitSource({sourceType: "webcam"});
 
