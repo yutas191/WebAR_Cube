@@ -3,7 +3,7 @@ var source, context;
 
 var clock = new THREE.Clock();
 var scene = new THREE.Scene();
-var app = new App(scene,context);
+var app = new App(scene);
 var loader = new THREE.JSONLoader();
 
 init();
@@ -71,7 +71,7 @@ function init() {
 		}
 	});
 
-	app.init();
+	app.init(context);
 }
 
 function resize() {

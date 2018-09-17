@@ -4,12 +4,11 @@ var marker1, controls1;
 var marker2, controls2;
 
 class App {
-	constructor(scene,context) {
+	constructor(scene) {
 		this.scene = scene;
-		this.context = context;
 	}
 
-	init() {
+	init(arContext) {
 		// ライト
 		var light = new THREE.DirectionalLight(0xFFFFFF);
 		light.position.set(0,0,2);
@@ -19,12 +18,12 @@ class App {
 
 		// マーカ1
 		marker1 = new THREE.Group();
-		controls1 = new THREEx.ArMarkerControls(context, marker1, {type: "pattern",patternUrl: "./data/kanji.patt"});
+		controls1 = new THREEx.ArMarkerControls(arContext, marker1, {type: "pattern",patternUrl: "./data/kanji.patt"});
 		scene.add(marker1);
 
 		// マーカ2
 		marker2 = new THREE.Group();
-		controls2 = new THREEx.ArMarkerControls(context, marker2, {type: "pattern",patternUrl: "./data/hiro.patt"});
+		controls2 = new THREEx.ArMarkerControls(arContext, marker2, {type: "pattern",patternUrl: "./data/hiro.patt"});
 		scene.add(marker2);
 
 		// Cube
