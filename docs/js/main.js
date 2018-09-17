@@ -1,6 +1,9 @@
 var camera, renderer;
 var source, context;
 
+var marker1, controls1;
+var marker2, controls2;
+
 var clock = new THREE.Clock();
 var scene = new THREE.Scene();
 var app = new App(scene);
@@ -34,6 +37,32 @@ function init() {
 		resize();
 	});
 
+	// ArToolkitContextの作成
+	context = new THREEx.ArToolkitContext({
+		debug: false,
+		cameraParametersUrl: "./data/camera_para.dat",
+		detectionMode: "mono",
+		imageSmoothingEnabled: true,
+		maxDetectionRate: 60,
+		canvasWidth: source.parameters.sourceWidth,
+		canvasHeight: source.parameters.sourceHeight,
+	});
+
+	// コンテクスト初期化
+	context.init(function onCompleted(){
+		camera.projectionMatrix.copy(context.getProjectionMatrix());
+	});
+
+	// マーカ1
+	marker1 = new THREE.Group();
+	controls1 = new THREEx.ArMarkerControls(context, marker1, {type: "pattern",patternUrl: "./data/kanji.patt"});
+	scene.add(marker1);
+
+	// マーカ2
+	marker2 = new THREE.Group();
+	controls2 = new THREEx.ArMarkerControls(context, marker2, {type: "pattern",patternUrl: "./data/hiro.patt"});
+	scene.add(marker2);
+
 	// リサイズ処理
 	window.addEventListener("resize", function() {
 		resize();
@@ -55,7 +84,7 @@ function init() {
 		}
 	});
 
-	app.init(context,camera,source);
+	app.init(marker1,marker2);
 }
 
 function resize() {
