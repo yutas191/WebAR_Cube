@@ -12,19 +12,19 @@ class App {
 		// ライト
 		var light = new THREE.DirectionalLight(0xFFFFFF);
 		light.position.set(0,0,2);
-		scene.add( light );
+		this.scene.add( light );
 		var ambientLight = new THREE.AmbientLight(0x888888);
-		scene.add( ambientLight );
+		this.scene.add( ambientLight );
 
 		// マーカ1
 		marker1 = new THREE.Group();
 		controls1 = new THREEx.ArMarkerControls(context, marker1, {type: "pattern",patternUrl: "./data/kanji.patt"});
-		scene.add(marker1);
+		this.scene.add(marker1);
 
 		// マーカ2
 		marker2 = new THREE.Group();
 		controls2 = new THREEx.ArMarkerControls(context, marker2, {type: "pattern",patternUrl: "./data/hiro.patt"});
-		scene.add(marker2);
+		this.scene.add(marker2);
 
 		// Cube
 		var geometryCube = new THREE.CubeGeometry(1, 1, 1);
@@ -33,7 +33,6 @@ class App {
 		meshCube.name = "cube";
 		meshCube.position.set(0, 0.5, 0);
 		marker1.add(meshCube);
-		scene.add(meshCube);
 
 		// Rocket
 		loader.load("./model/rocketX.json", function(geometryRocket, materialRocket){
