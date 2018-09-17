@@ -6,7 +6,7 @@ var marker2, controls2;
 
 var clock = new THREE.Clock();
 var scene = new THREE.Scene();
-var app = new App(scene);
+//var app = new App(scene);
 var loader = new THREE.JSONLoader();
 
 init();
@@ -46,7 +46,7 @@ function init() {
 		var ray = new THREE.Raycaster(camera.position, pos.sub(camera.position).normalize());
 		var obj = ray.intersectObjects(scene.children, true);   // レイと交差したオブジェクトの取得
 		if(obj.length > 0) {                                // 交差したオブジェクトがあれば
-		app.touch(obj[0].object.name);                       // タッチされた対象に応じた処理を実行
+		//app.touch(obj[0].object.name);                       // タッチされた対象に応じた処理を実行
 		}
 	});
 
@@ -102,7 +102,7 @@ function init() {
 		marker2.add(meshRocket);
 	});
 
-	app.init();
+//	app.init();
 }
 
 function resize() {
@@ -116,11 +116,11 @@ function resize() {
 function update(dt) {
 	resize();
 	camera.updateProjectionMatrix();
-	app.update(dt);
+//	app.update(dt);
 }
 
 function render(dt) {
-	app.render(dt);
+//	app.render(dt);
 	renderer.render(scene, camera);
 }
 
