@@ -74,7 +74,7 @@ function init() {
 		}
 	});
 
-	app.init();
+	app.init(context);
 }
 
 function resize() {
